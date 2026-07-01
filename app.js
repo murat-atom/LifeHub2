@@ -148,7 +148,7 @@ ${task.done ? "text-decoration:line-through;color:#8fb7a3;" : ""}
 ">${task.text}</span>
 </label>
 `;
-        div.innerHTML += `
+        item.innerHTML += `
 <button class="deleteButton">
 🗑️
 </button>
@@ -167,15 +167,17 @@ ${task.done ? "text-decoration:line-through;color:#8fb7a3;" : ""}
             renderTasks();
 
         };
-        div.querySelector(".deleteButton").onclick = function(){
+        item.querySelector(".deleteButton").onclick = function(){
 
     if(!confirm("Удалить задачу?")) return;
 
     tasks.splice(index,1);
 
-    save();
+    saveTasks();
 
-}
+    renderTasks();
+
+};
 
         taskList.appendChild(item);
 
