@@ -15,6 +15,7 @@ const yearLeft = document.getElementById("yearLeft");
 
 const taskList = document.getElementById("taskList");
 const addButton = document.getElementById("addButton");
+const searchInput = document.getElementById("searchInput");
 
 let tasks = JSON.parse(
     localStorage.getItem(STORAGE.TASKS)
@@ -113,12 +114,24 @@ function updateCountdown(){
 }function renderTasks(){
 
     taskList.innerHTML = "";
+    const search =
+    searchInput
+        ? searchInput.value.toLowerCase()
+        : "";
 
     let done = 0;
 
     tasks.forEach((task,index)=>{
 
         if(task.done) done++;
+        if(
+    search &&
+    !task.text
+        .toLowerCase()
+        .includes(search)
+){
+    return;
+}
 
         const item =
             document.createElement("div");
@@ -210,6 +223,15 @@ function init(){
     updateCountdown();
 
     renderTasks();
+    if(searchInput){
+
+    searchInput.oninput = function(){
+
+        renderTasks();
+
+    };
+
+}
 
 }
 
