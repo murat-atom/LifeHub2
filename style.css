@@ -240,3 +240,44 @@ button:active{
     }
 
 }
+/* ===== Поиск ===== */
+
+.search{
+
+    width:100%;
+
+    height:48px;
+
+    margin-bottom:16px;
+
+    padding:0 16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#20362b;
+
+    color:var(--text);
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+.search::placeholder{
+
+    color:var(--muted);
+
+}
+
+.search:focus{
+
+    background:#294337;
+
+    box-shadow:0 0 0 2px var(--primary);
+
+}
