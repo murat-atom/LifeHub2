@@ -1,35 +1,44 @@
 // =========================
-// LifeHub Navigation
+// LifeHub Navigation v1
 // =========================
 
-function showScreen(screenName) {
+const SCREENS = {
+    home: "screen-home",
+    tasks: "tasks",
+    habits: "habits",
+    goals: "goals",
+    stats: "stats"
+};
 
-    const screens = document.querySelectorAll(".screen");
+function showScreen(name) {
 
-    screens.forEach(screen => {
-
+    // Скрываем все экраны
+    document.querySelectorAll(".screen").forEach(screen => {
         screen.classList.add("hidden");
-
+        screen.classList.remove("active");
     });
 
-    const current = document.getElementById(screenName);
+    // Показываем нужный
+    const id = SCREENS[name];
 
-    if (current) {
+    if (id) {
 
-        current.classList.remove("hidden");
+        const screen = document.getElementById(id);
+
+        if (screen) {
+            screen.classList.remove("hidden");
+            screen.classList.add("active");
+        }
 
     }
 
-    const buttons = document.querySelectorAll(".nav-btn");
+    // Подсветка нижнего меню
+    document.querySelectorAll(".nav-btn").forEach(btn => {
 
-    buttons.forEach(button => {
+        btn.classList.remove("active");
 
-        button.classList.remove("active");
-
-        if (button.dataset.screen === screenName) {
-
-            button.classList.add("active");
-
+        if (btn.dataset.screen === name) {
+            btn.classList.add("active");
         }
 
     });
@@ -38,16 +47,17 @@ function showScreen(screenName) {
 
 function initNavigation() {
 
-    const buttons = document.querySelectorAll(".nav-btn");
+    document.querySelectorAll(".nav-btn").forEach(btn => {
 
-    buttons.forEach(button => {
+        btn.onclick = () => {
 
-        button.onclick = function () {
-
-            showScreen(this.dataset.screen);
+            showScreen(btn.dataset.screen);
 
         };
 
     });
+
+    // При запуске всегда открываем главный экран
+    showScreen("home");
 
 }
