@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>LifeHub</title>
+
+    <meta name="theme-color" content="#0b1d16">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,124 +18,126 @@
 
     <header class="header">
 
-        <h1>LifeHub</h1>
+        <h1 class="logo">LifeHub</h1>
 
         <div id="greeting" class="greeting">
-            Добро пожаловать
+            Добро пожаловать 👋
         </div>
 
-        <div id="todayDate" class="date">
-            ...
-        </div>
+        <div id="todayDate" class="date"></div>
 
     </header>
 
-    <section class="card">
 
-        <h2>🎯 Сегодня</h2>
+    <main id="screens">
 
-        <div class="progress">
+        <!-- Главная -->
+        <section id="screen-home" class="screen active">
 
-            <div class="progress-fill"
-                 id="progressFill"></div>
+            <section class="card">
 
-        </div>
+                <h2>🎯 Сегодня</h2>
 
-        <div class="progress-text"
-             id="progressText">
+                <div class="progress">
 
-            0%
+                    <div id="progressFill"
+                         class="progress-fill"></div>
 
-        </div>
+                </div>
 
-        <div class="streak"
-             id="streak">
+                <div id="progressText"
+                     class="progress-text">
 
-            🔥 Серия: 0 дней
+                    0 из 0 • 0%
 
-        </div>
+                </div>
 
-    </section>
+                <div id="streak"
+                     class="streak">
 
-    <section class="card">
+                    🔥 Серия: 0 дней
 
-        <h2>📅 Время</h2>
+                </div>
 
-        <div class="time-row">
+            </section>
 
-            <span>Неделя</span>
 
-            <span id="weekLeft">
-                ...
-            </span>
+            <section class="card">
 
-        </div>
+                <h2>📅 Время</h2>
 
-        <div class="time-row">
+                <div class="time-row">
+                    <span>Неделя</span>
+                    <span id="weekLeft"></span>
+                </div>
 
-            <span>Месяц</span>
+                <div class="time-row">
+                    <span>Месяц</span>
+                    <span id="monthLeft"></span>
+                </div>
 
-            <span id="monthLeft">
-                ...
-            </span>
+                <div class="time-row">
+                    <span>Год</span>
+                    <span id="yearLeft"></span>
+                </div>
 
-        </div>
+            </section>
 
-        <div class="time-row">
 
-            <span>Год</span>
+            <section class="card">
 
-            <span id="yearLeft">
-                ...
-            </span>
+                <div class="section-header">
 
-        </div>
+                    <h2>✅ Сегодня</h2>
 
-    </section>
+                    <button id="addButton">
+                        +
+                    </button>
 
-    <section class="card">
+                </div>
 
-        <div class="section-header">
+                <div id="taskList"></div>
 
-            <h2>✅ Сегодня</h2>
+            </section>
 
-            <button id="addButton">
+        </section>
 
-                +
 
-            </button>
+        <!-- Остальные вкладки -->
+        <section id="screen-tasks" class="screen"></section>
 
-        </div>
+        <section id="screen-habits" class="screen"></section>
 
-        <div id="taskList">
+        <section id="screen-goals" class="screen"></section>
 
-        </div>
+        <section id="screen-stats" class="screen"></section>
 
-    </section>
+    </main>
+
 
     <nav class="bottomNav">
 
-        <button class="active">
+        <button class="nav-btn active" data-screen="home">
             🏠
             <span>Сегодня</span>
         </button>
 
-        <button>
+        <button class="nav-btn" data-screen="tasks">
             📋
             <span>Задачи</span>
         </button>
 
-        <button>
+        <button class="nav-btn" data-screen="habits">
             💧
             <span>Привычки</span>
         </button>
 
-        <button>
+        <button class="nav-btn" data-screen="goals">
             🎯
             <span>Цели</span>
         </button>
 
-        <button>
+        <button class="nav-btn" data-screen="stats">
             📊
             <span>Статистика</span>
         </button>
