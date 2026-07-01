@@ -281,3 +281,50 @@ button:active{
     box-shadow:0 0 0 2px var(--primary);
 
 }
+/* ===== Удаление задачи ===== */
+
+.task{
+
+    position:relative;
+
+}
+
+.deleteButton{
+
+    position:absolute;
+
+    top:12px;
+
+    right:12px;
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#3a201f;
+
+    color:#ff6d6d;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.deleteButton:hover{
+
+    background:#5b2b29;
+
+}
+
+.deleteButton:active{
+
+    transform:scale(.92);
+
+}
