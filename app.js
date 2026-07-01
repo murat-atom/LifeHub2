@@ -148,6 +148,11 @@ ${task.done ? "text-decoration:line-through;color:#8fb7a3;" : ""}
 ">${task.text}</span>
 </label>
 `;
+        div.innerHTML += `
+<button class="deleteButton">
+🗑️
+</button>
+`;
 
         const checkbox =
             item.querySelector("input");
@@ -162,6 +167,15 @@ ${task.done ? "text-decoration:line-through;color:#8fb7a3;" : ""}
             renderTasks();
 
         };
+        div.querySelector(".deleteButton").onclick = function(){
+
+    if(!confirm("Удалить задачу?")) return;
+
+    tasks.splice(index,1);
+
+    save();
+
+}
 
         taskList.appendChild(item);
 
